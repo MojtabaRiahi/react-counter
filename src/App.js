@@ -27,6 +27,13 @@ class App extends Component {
     counters[index].value++;
     this.setState({ counters: counters });
   };
+  handelDecreament = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
+    this.setState({ counters: counters });
+  };
   handelDelete = counterId => {
     console.log("delete", counterId);
     const counters = this.state.counters.filter(c => c.id !== counterId);
@@ -38,7 +45,7 @@ class App extends Component {
       <React.Fragment>
         <NavBar tolalCounters={this.state.counters.filter(c=>c.value>0).length}/>
         <main className="container">
-          <Counters counters={this.state.counters} onReset={this.handelRest} onDelete={this.handelDelete} onIncreament={this.handelIncreament} />
+          <Counters counters={this.state.counters} onReset={this.handelRest} onDelete={this.handelDelete} onDecreament={this.handelDecreament} onIncreament={this.handelIncreament} />
         </main>
       </React.Fragment>
     );
