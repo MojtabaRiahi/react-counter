@@ -13,10 +13,20 @@ class Counter extends Component {
           onClick={
             ()=>this.props.onIncreament(this.props.counter)
           }
-          style={{ color: "#ccc" }}
-          className="btn btn-success"
+          style={{ color: "#fff" }}
+          className="btn btn-primary m-2"
         >
-          Increament
+         +
+        </button>
+        <button
+          onClick={
+            ()=>this.props.onDecreament(this.props.counter)
+          }
+          disabled={this.props.counter.value!==0 ? "" : "disabled"}
+          style={{ color: "#fff" }}
+          className="btn btn-primary"
+        >
+          -
         </button>
       <button onClick={()=>this.props.onDelete(this.props.counter.id)} className="btn btn-danger m-2">Delete</button>
       </React.Fragment>
